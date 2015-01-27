@@ -1,9 +1,9 @@
 pub fn editor(source: &str) -> String {
-    format!("<div id=\"active-code\">
-<button class=\"btn btn-primary\" type=\"button\" id=\"run-code\">Run</button>
-<button class=\"btn btn-primary\" type=\"button\" id=\"reset-code\">Reset</button>
-<div id=\"editor\">{}</div>
-<div id=\"result\"></div>
+    format!("<div class=\"active-code\">
+<button class=\"btn btn-primary run-code\" type=\"button\">Run</button>
+<button class=\"btn btn-primary reset-code\" type=\"button\">Reset</button>
+<div class=\"editor\">{}</div>
+<div class=\"result\"></div>
 </div>", escape(source))
 }
 

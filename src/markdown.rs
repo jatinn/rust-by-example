@@ -123,17 +123,11 @@ impl<'a, 'b> Markdown<'a, 'b> {
         let prefix = self.prefix;
         let re = Regex::new(r"\{(.*)\.play\}").unwrap();
 
-        let mut once_ = false;
         let mut table = Vec::new();
         for line in self.content.as_slice().lines() {
             match re.captures(line) {
                 None => {},
                 Some(captures) => {
-                    if once_ {
-                        return Err(format!("more than one editor!"))
-                    } else {
-                        once_ = true;
-                    }
 
                     let srcbase = captures.at(1).unwrap();
                     let input = format!("{{{}.play}}", srcbase);
